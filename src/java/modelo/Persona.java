@@ -87,7 +87,7 @@ public class Persona {
 
     public boolean deletePersonas() {
         try {                
-            try (PreparedStatement pstm = conn.prepareStatement("delete from persona where id = ?")) {
+            try (PreparedStatement pstm = conn.prepareStatement("delete from tb_persona where id = 'dui_persona'")) {
                 String cod = null;
                 pstm.setString(1, cod);                   
                 pstm.execute();
