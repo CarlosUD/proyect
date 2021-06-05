@@ -1,9 +1,9 @@
 
 package modelo;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.ArrayList;
 
 
 public class Persona {
@@ -15,14 +15,14 @@ public class Persona {
     Statement state;
     ResultSet result;
      public Persona(String dui, String apellido, String nombre){
-         this.dui =dui;
-         this.apellido =apellido;
-         this.nombre =nombre;
+         this.dui = dui;
+         this.apellido = apellido;
+         this.nombre = nombre;
      }
     public Persona(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn =DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_recurso_hmano?zeroDateTimeBehavior=convertToNull","root","");
+            conn =DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_recurso_humano?zeroDateTimeBehavior=convertToNull","root","");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex){
@@ -44,22 +44,21 @@ public class Persona {
         }
         return false;
     }
-    
+ /*   
     public ArrayList<Persona> consultarRegistro() {
-        ArrayList<Persona> person= new ArrayList();
-        try{
+        ArrayList<Persona> person= new ArrayList<Persona>();
+        try{ 
             String myQuery = "select * from tb_persona;";
              state =conn.createStatement();
              result = state.executeQuery(myQuery);
              while (result.next()){
-                 person.add(new Persona(result.getString("dui_persona"),result.getString("apellido_persona"),result.getString("nombre_persona")));
+                 person.add(new Persona(result.getString("dui"),result.getString("apellido_persona"),result.getString("nombre_persona")));
              }
         }catch (SQLException ex){
             Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, ex);
         }
         return person;
-    }
-  
+    }*/
     
     public String getDui() {
         return dui;
@@ -83,26 +82,5 @@ public class Persona {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public boolean deletePersonas() {
-        try {                
-            try (PreparedStatement pstm = conn.prepareStatement("delete from tb_persona where id = 'dui_persona'")) {
-                String cod = null;
-                pstm.setString(1, cod);                   
-                pstm.execute();
-            }            
-            }catch(SQLException e){
-            System.out.println(e);
-            }            
-        return false;
-    }
-
-    
-
-  
-
-   
-    
-    
+    } 
 }

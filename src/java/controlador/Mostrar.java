@@ -6,7 +6,6 @@
 package controlador;
 
 import java.io.IOException;
-
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,10 +22,10 @@ public class Mostrar extends HttpServlet {
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Persona p =new Persona();
-            ArrayList<Persona> persona =new ArrayList();
+        Persona p = new Persona();
+            ArrayList<Persona> persona = new ArrayList<Persona>();
            persona = p.consultarRegistro();
-            request.getSession().setAttribute("Persona", persona);
+            request.getSession().setAttribute("persona", persona);
             request.getRequestDispatcher("MostrarTodo.jsp").forward(request, response);
         
        

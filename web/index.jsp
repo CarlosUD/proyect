@@ -10,21 +10,18 @@
         <title>JSP Page</title>
     </head>
     <body> 
-        <div class="container">
-            deletePersona();
+        <div class="container" style="width: 475px ; height: 374px">
+            
         <h1>Registro de Persona</h1>
        
-        <form action="Recibir.do" method="POST">
-            Dui:     <input Class ="form-control" type="text" name="txtdui" value="" /><br>
+        <form action="Recibir.do" method="POST" style="width: 444px">
+            Dui:     <input Class ="form-control" type="text" name="txtdui" value=""/><br>
             Apellido: <input Class ="form-control" type="text" name="txtapellido" value="" /><br>
             Nombre:   <input Class ="form-control" type="text" name="txtnombre" value="" /> <br><br>    
             
-        <input type="submit" class="btn-info"  value="Registrar nuevo persona" /> 
-        
-        <input type="button" value="Consultar Registros" class="btn-info" id="r" onClick=" window.location.href='Mostrar.do' ">
-         <input type="button" value="Actualizar Registros" class="btn-info" id="r" onClick=" window.location.href='Mostrar.do' ">
-          <input type="button" value="Eliminar Registros" class="btn-info" id="r" onClick=" window.location.href='Delete.jsp' ">
-            </form>
+        <input type="submit" class="btn btn-danger"  value="Registrar nuevo persona" /> 
+         <a href="MostrarTodo.jsp" class="btn btn-success " >Nuevo Registro </a>
+        </form>
         
         </div>
     </body>
